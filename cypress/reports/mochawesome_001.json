@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-16T16:19:35.858Z",
+    "end": "2026-10-16T16:20:34.556Z",
+    "duration": 58698,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9a90dcc8-042a-45e2-8948-20284f089600",
+      "title": "",
+      "fullFile": "cypress\\e2e\\amazon.cy.js",
+      "file": "cypress\\e2e\\amazon.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "84f422f0-f7ef-4b98-982c-630bcc4d69df",
+          "title": "Amazon - Search chair",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "nama & harga item di halaman detail sama dengan di search page",
+              "fullTitle": "Amazon - Search chair nama & harga item di halaman detail sama dengan di search page",
+              "timedOut": null,
+              "duration": 53768,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_HomePage.default.visit();\n_HomePage.default.setDeliveryZip(Cypress.env('AMAZON_ZIP'));\n_HomePage.default.search(Cypress.env('SEARCH_KEYWORD'));\n_SearchResultPage.default.sortByPriceHighToLow();\n_SearchResultPage.default.captureAndOpenRightmostItem();\ncy.get('@searchName').then(name => {\n  _ProductPage.default.title().should('eq', name);\n});\ncy.get('@searchPrice').then(price => {\n  _ProductPage.default.wholePrice().should('eq', price);\n});",
+              "err": {},
+              "uuid": "15bf2bfb-5f10-4e51-a7b8-dfbd482de2de",
+              "parentUUID": "84f422f0-f7ef-4b98-982c-630bcc4d69df",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "15bf2bfb-5f10-4e51-a7b8-dfbd482de2de"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 53768,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

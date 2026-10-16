@@ -162,7 +162,15 @@ Workflow `.github/workflows/cypress.yml` jalan saat push/PR ke `main` atau manua
 - **Agoda**: dropdown (nationality, bulan, negara) adalah komponen custom dengan list virtual, jadi dipilih lewat popup + kotak search, bukan `cy.select`.
 - **Agoda**: setelah klik *Continue to payment* muncul modal upsell; test klik **No, thanks**.
 - **Amazon**: sort memakai parameter URL `s=price-desc-rank`, karena dropdown sort sering berubah atau tersembunyi.
-- **YouTube**: stream video (`googlevideo.com`) diblok dan klik link dipaksa full page load, karena autoplay dan navigasi SPA YouTube membuat renderer browser crash.
+- **YouTube**: stream video (`googlevideo.com`) diblok dan klik link dipaksa full page load, karena navigasi SPA YouTube membuat renderer browser crash. Dengan ini flow sudah lolos sampai halaman Trending, tetapi **renderer masih crash saat membuka halaman video** (kemungkinan dari video player), jadi spec YouTube saat ini gagal. Spec ini pernah lolos sebelum YouTube berubah.
+
+## Status Terakhir
+
+| Spec | Hasil |
+|---|---|
+| agoda.cy.js | ✔ Pass |
+| amazon.cy.js | ✔ Pass |
+| youtube.cy.js | ✖ Renderer crash di halaman video |
 - Harga, jadwal, dan daftar trending bersifat dinamis, jadi assertion **membandingkan nilai antar halaman**, bukan nilai tetap.
 - Situs pihak ketiga bisa menampilkan CAPTCHA, pop-up, atau mengubah struktur elemen sewaktu-waktu; selector mungkin perlu disesuaikan.
 
