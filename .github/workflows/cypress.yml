@@ -1,0 +1,42 @@
+name: Cypress E2E
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Cypress
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+        env:
+          CYPRESS_AGODA_URL: ${{ secrets.AGODA_URL || 'https://www.agoda.com' }}
+          CYPRESS_AMAZON_URL: ${{ secrets.AMAZON_URL || 'https://www.amazon.com' }}
+          CYPRESS_YOUTUBE_URL: ${{ secrets.YOUTUBE_URL || 'https://www.youtube.com' }}
+
+      - name: Merge HTML report
+        if: always()
+        run: npm run report
+
+      - name: Upload videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-report
+          path: cypress/reports

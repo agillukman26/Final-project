@@ -1,0 +1,10 @@
+{
+  "gender": "Male",
+  "nationality": "Indonesia",
+  "dob": { "day": "15", "month": "May", "year": "1990" },
+  "passport": {
+    "number": "B1234567",
+    "country": "Indonesia",
+    "expiry": { "day": "20", "month": "August", "year": "2031" }
+  }
+}

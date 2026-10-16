@@ -1,0 +1,23 @@
+{
+  "name": "final-project-cypress-afteroffice",
+  "version": "1.0.0",
+  "description": "E2E automation Agoda, Amazon, YouTube dengan Cypress + POM",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:agoda": "cypress run --spec cypress/e2e/agoda.cy.js",
+    "cy:run:amazon": "cypress run --spec cypress/e2e/amazon.cy.js",
+    "cy:run:youtube": "cypress run --spec cypress/e2e/youtube.cy.js",
+    "report": "mochawesome-merge cypress/reports/*.json -o cypress/reports/merged.json && marge cypress/reports/merged.json --reportDir cypress/reports --reportFilename index --inline"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "cypress": "^15.21.1",
+    "mochawesome": "^8.1.1",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2"
+  }
+}
